@@ -48,7 +48,7 @@ public class CertificateServiceImplementation implements CertificateService {
 
     @Override
     public void deleteCertificate(int certificateID) {
-        repo.deleteById(certificateID);
+        repo.deleteCertificateByCertificateID(certificateID);
     }
 
     @Override

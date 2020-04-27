@@ -2,6 +2,7 @@ package com.ELM.stProject.Wattheq.Repository;
 
 import com.ELM.stProject.Wattheq.DTO.CertificateDTO;
 import com.ELM.stProject.Wattheq.Model.Certificate;
+import org.hibernate.annotations.SQLUpdate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -20,4 +21,9 @@ public interface CertificateRepo extends JpaRepository<Certificate, Integer> {
     @Transactional
     @Query(value = "UPDATE Certificates c set c.CERTIFICATE_DESCRIPTION = :CERTIFICATE_DESCRIPTION, c.CERTIFICATE_DATE = :CERTIFICATE_DATE, c.USERID = :userID where c.CERTIFICATEID = :certificateID", nativeQuery = true)
     void updateFile(String CERTIFICATE_DESCRIPTION, String CERTIFICATE_DATE, Integer userID, Integer certificateID);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM Certificates c WHERE c.certificateID = ?1", nativeQuery = true)
+    void deleteCertificateByCertificateID(Integer certificateID);
 }

@@ -2,6 +2,7 @@ package com.ELM.stProject.Wattheq.DTO;
 
 public class CertificateDTO {
 
+    private int certificateID;
     private String certificateName;
     private String certificateType;
     private String certificateDescription;
@@ -11,12 +12,20 @@ public class CertificateDTO {
     public CertificateDTO() {
 
     }
-    public CertificateDTO(String certificateName, String certificateType, String certificateDescription, String certificateDate, String certificateStatus) {
+    public CertificateDTO(int certificateID, String certificateName, String certificateType, String certificateDescription, String certificateDate, String certificateStatus) {
+        this.certificateID = certificateID;
         this.certificateName = certificateName;
         this.certificateType = certificateType;
         this.certificateDescription = certificateDescription;
         this.certificateDate = certificateDate;
         this.certificateStatus = certificateStatus;
+    }
+
+    public int getCertificateID() {
+        return certificateID;
+    }
+    public void setCertificateID(int certificateID) {
+        this.certificateID = certificateID;
     }
     public String getCertificateName() {
         return certificateName;
