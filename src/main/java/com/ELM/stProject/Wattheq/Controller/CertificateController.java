@@ -32,8 +32,8 @@ public class CertificateController {
     }
 
     @PutMapping(value = "/UpdateCertificate/{certificateID}")
-    public Certificate updateCertificate(@RequestBody Certificate certificate, @PathVariable("certificateID") int certificateID) {
-        return certificateService.updateCertificate(certificate, certificateID);
+    public void updateCertificate(@RequestBody Certificate certificate, @PathVariable("certificateID") int certificateID) {
+        certificateService.updateCertificate(certificate, certificateID);
     }
 
     @RequestMapping(value = "/DeleteCertificate/{certificateID}", method = RequestMethod.DELETE)

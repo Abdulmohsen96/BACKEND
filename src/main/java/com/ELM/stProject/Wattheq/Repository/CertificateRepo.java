@@ -26,4 +26,9 @@ public interface CertificateRepo extends JpaRepository<Certificate, Integer> {
     @Transactional
     @Query(value = "DELETE FROM Certificates c WHERE c.certificateID = ?1", nativeQuery = true)
     void deleteCertificateByCertificateID(Integer certificateID);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE Certificates c set c.CERTIFICATE_DESCRIPTION = :CERTIFICATE_DESCRIPTION, c.CERTIFICATE_DATE = :CERTIFICATE_DATE, c.CERTIFICATE_NAME = :CERTIFICATE_NAME where c.CERTIFICATEID = :certificateID", nativeQuery = true)
+    void updateCertificate(String CERTIFICATE_DESCRIPTION, String CERTIFICATE_DATE, String CERTIFICATE_NAME, Integer certificateID);
 }

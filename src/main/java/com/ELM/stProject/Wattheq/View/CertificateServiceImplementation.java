@@ -41,9 +41,8 @@ public class CertificateServiceImplementation implements CertificateService {
     }
 
     @Override
-    public Certificate updateCertificate(Certificate certificate, int certificateID) {
-        certificate.setCertificateID(certificateID);
-        return repo.save(certificate);
+    public void updateCertificate(Certificate certificate, int certificateID) {
+        repo.updateCertificate(certificate.getCertificateDescription(), certificate.getCertificateDate(), certificate.getCertificateName(), certificateID);
     }
 
     @Override
