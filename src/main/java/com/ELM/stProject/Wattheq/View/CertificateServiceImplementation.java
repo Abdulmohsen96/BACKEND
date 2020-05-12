@@ -34,8 +34,8 @@ public class CertificateServiceImplementation implements CertificateService {
     }
 
     @Override
-    public CertificateDTO getCertificate(int certificateID) {
-        Certificate certificate = repo.findById(certificateID).get();
+    public CertificateDTO getCertificate(int certificateID, int userID) {
+        Certificate certificate = repo.findCertificateByUserID(certificateID, userID);
         CertificateDTO certificateDTO = modelMapper.map(certificate, CertificateDTO.class);
         return certificateDTO;
     }

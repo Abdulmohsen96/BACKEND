@@ -17,6 +17,9 @@ public interface CertificateRepo extends JpaRepository<Certificate, Integer> {
     @Query(value = "SELECT * FROM CERTIFICATES c WHERE c.USERID = ?1", nativeQuery = true)
     List<Certificate> findCertificatesByUserID(Integer userID);
 
+    @Query(value = "SELECT * FROM CERTIFICATES c WHERE c.CERTIFICATEID = ?1 AND c.USERID = ?2", nativeQuery = true)
+    Certificate findCertificateByUserID(int certificateID, int userID);
+
     @Modifying
     @Transactional
     @Query(value = "UPDATE Certificates c set c.CERTIFICATE_DESCRIPTION = :CERTIFICATE_DESCRIPTION, c.CERTIFICATE_DATE = :CERTIFICATE_DATE, c.USERID = :userID where c.CERTIFICATEID = :certificateID", nativeQuery = true)

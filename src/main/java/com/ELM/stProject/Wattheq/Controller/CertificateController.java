@@ -26,9 +26,9 @@ public class CertificateController {
         return certificateService.getAllCertificates();
     }
 
-    @GetMapping(value = "/GetCertificate/{certificateID}")
-    public CertificateDTO getCertificate(@PathVariable("certificateID") int certificateID) {
-        return certificateService.getCertificate(certificateID);
+    @GetMapping(value = "/GetCertificate/{certificateID}/{userID}")
+    public CertificateDTO getCertificate(@PathVariable("certificateID") int certificateID, @PathVariable("userID") int userID) {
+        return certificateService.getCertificate(certificateID, userID);
     }
 
     @PutMapping(value = "/UpdateCertificate/{certificateID}")

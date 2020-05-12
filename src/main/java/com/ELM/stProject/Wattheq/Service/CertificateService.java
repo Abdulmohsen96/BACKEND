@@ -11,7 +11,7 @@ public interface CertificateService {
 
     public Certificate addCertificate(Certificate certificate);
     public List<CertificateDTO> getAllCertificates();
-    public CertificateDTO getCertificate(int certificateID);
+    public CertificateDTO getCertificate(int certificateID, int userID);
     public void updateCertificate(Certificate certificate, int certificateID);
     public void deleteCertificate (int certificateID);
 
