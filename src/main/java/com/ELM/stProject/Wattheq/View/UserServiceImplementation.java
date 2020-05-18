@@ -47,10 +47,9 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public UserDTO getUserByEmail(String email) {
+    public User getUserByEmail(String email) {
         User user =  repo.findByEmail(email);
-        UserDTO userDTO = modelMapper.map(user, UserDTO.class);
-        return userDTO;
+        return user;
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.ELM.stProject.Wattheq.Controller;
 
 import com.ELM.stProject.Wattheq.DTO.OrganizationDTO;
 import com.ELM.stProject.Wattheq.DTO.UserDTO;
+import com.ELM.stProject.Wattheq.Model.Authority;
 import com.ELM.stProject.Wattheq.Model.Organization;
 import com.ELM.stProject.Wattheq.Model.User;
 import com.ELM.stProject.Wattheq.Repository.OrganizationRepo;
@@ -29,11 +30,9 @@ public class UserController {
     @GetMapping(value = "/Login")
     public ResponseEntity login(Principal principal){
         Map<String,String> map = new HashMap<>();
+        User user = userService.getUserByEmail(principal.getName());
         map.put("userID", String.valueOf(userService.getUserByEmail(principal.getName()).getUserID()));
-        map.put("fullName", String.valueOf(userService.getUserByEmail(principal.getName()).getFullName()));
-        map.put("dob", String.valueOf(userService.getUserByEmail(principal.getName()).getDob()));
-        map.put("phoneNumber", String.valueOf(userService.getUserByEmail(principal.getName()).getPhoneNumber()));
-        map.put("email", String.valueOf(userService.getUserByEmail(principal.getName()).getEmail()));
+        map.put("role", String.valueOf(user.getAuthorityName().getAuthorityName()));
         return ResponseEntity.ok(map);
     }
 
@@ -53,7 +52,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/GetUserByEmail/{email}")
-    public UserDTO getUserByEmail(@PathVariable("email") String email) {
+    public User getUserByEmail(@PathVariable("email") String email) {
         return userService.getUserByEmail(email);
     }
 

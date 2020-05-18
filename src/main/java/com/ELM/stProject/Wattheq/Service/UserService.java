@@ -10,7 +10,7 @@ public interface UserService {
     public User addUser(User user);
     public List<UserDTO> getAllUsers();
     public UserDTO getUserByID(int userID);
-    public UserDTO getUserByEmail(String email);
+    public User getUserByEmail(String email);
     public User updateUser(User user, int userID);
     public void deleteUser(int userID);
 
