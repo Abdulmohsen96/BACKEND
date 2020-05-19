@@ -70,4 +70,10 @@ public class UserServiceImplementation implements UserService {
         OrganizationDTO organizationDTO = modelMapper.map(organization, OrganizationDTO.class);
         return organizationDTO;
     }
+
+    public List<OrganizationDTO> findAllOrganizations() {
+        List<Organization> organizations =  organizationRepo.findAll();
+        List<OrganizationDTO> organizationDTOS = ObjectMapperUtils.mapAll(organizations, OrganizationDTO.class);
+        return organizationDTOS;
+    }
 }

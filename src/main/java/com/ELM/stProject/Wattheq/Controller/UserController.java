@@ -37,8 +37,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/AddUser", method = RequestMethod.POST)
-    public void addUser(@Valid @RequestBody User user) {
-        userService.addUser(user);
+    public User addUser(@Valid @RequestBody User user) {
+        return userService.addUser(user);
     }
 
     @GetMapping(value = "/GetAllUsers")
@@ -76,5 +76,10 @@ public class UserController {
     @GetMapping(value = "/GetOrganization/{organizationName}")
     public OrganizationDTO findByOrganizationName(@PathVariable("organizationName") String organizationName) {
         return userService.findByOrganizationName(organizationName);
+    }
+
+    @GetMapping(value = "/GetAllOrganizations")
+    public List<OrganizationDTO> findAllOrganizations() {
+        return userService.findAllOrganizations();
     }
 }

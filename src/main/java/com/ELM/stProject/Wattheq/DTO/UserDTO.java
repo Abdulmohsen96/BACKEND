@@ -1,5 +1,7 @@
 package com.ELM.stProject.Wattheq.DTO;
 
+import com.ELM.stProject.Wattheq.Model.Authority;
+
 public class UserDTO {
 
     private int userID;
@@ -7,15 +9,17 @@ public class UserDTO {
     private String dob;
     private String phoneNumber;
     private String email;
+    private Authority authorityName;
 
     public UserDTO() {
     }
-    public UserDTO(int userID, String fullName, String dob, String phoneNumber, String email) {
+    public UserDTO(int userID, String fullName, String dob, String phoneNumber, String email, Authority authorityName) {
         this.userID = userID;
         this.fullName = fullName;
         this.dob = dob;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.authorityName = authorityName;
     }
 
     public int getUserID() {
@@ -47,5 +51,11 @@ public class UserDTO {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public Authority getAuthorityName() {
+        return authorityName;
+    }
+    public void setAuthorityName(Authority authorityName) {
+        this.authorityName = authorityName;
     }
 }

@@ -56,7 +56,7 @@ public class User {
     @OneToMany(mappedBy = "userCertificates", cascade = CascadeType.ALL)
     private List<Certificate> certificates = new ArrayList<>();
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "OrganizationID")
     private Organization userOrganization;
 

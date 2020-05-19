@@ -2,6 +2,7 @@ package com.ELM.stProject.Wattheq.DTO;
 
 public class OrganizationDTO {
 
+    private int organizationID;
     private String organizationName;
     private String organizationAddress;
     private String organizationContactNumber;
@@ -9,10 +10,18 @@ public class OrganizationDTO {
     public OrganizationDTO() {
 
     }
-    public OrganizationDTO(String organizationName, String organizationAddress, String organizationContactNumber) {
+    public OrganizationDTO(int organizationID, String organizationName, String organizationAddress, String organizationContactNumber) {
+        this.organizationID = organizationID;
         this.organizationName = organizationName;
         this.organizationAddress = organizationAddress;
         this.organizationContactNumber = organizationContactNumber;
+    }
+
+    public int getOrganizationID() {
+        return organizationID;
+    }
+    public void setOrganizationID(int organizationID) {
+        this.organizationID = organizationID;
     }
     public String getOrganizationName() {
         return organizationName;

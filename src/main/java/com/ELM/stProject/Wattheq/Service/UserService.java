@@ -2,6 +2,7 @@ package com.ELM.stProject.Wattheq.Service;
 
 import com.ELM.stProject.Wattheq.DTO.OrganizationDTO;
 import com.ELM.stProject.Wattheq.DTO.UserDTO;
+import com.ELM.stProject.Wattheq.Model.Organization;
 import com.ELM.stProject.Wattheq.Model.User;
 import java.util.List;
 
@@ -17,4 +18,5 @@ public interface UserService {
     //<<------------------------------------------->>\\
 
     public OrganizationDTO findByOrganizationName(String organizationName);
+    public List<OrganizationDTO> findAllOrganizations();
 }
