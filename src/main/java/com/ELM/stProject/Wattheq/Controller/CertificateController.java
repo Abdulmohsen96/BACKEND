@@ -51,8 +51,8 @@ public class CertificateController {
         return certificateService.getAllCertificatesByUserID(userID);
     }
 
-    @PutMapping(value = "/UpdateFile/{userID}")
-    public void updateFile(@RequestBody Certificate certificate, @PathVariable("userID") Integer userID) {
-        this.certificateService.updateFile(certificate, userID);
+    @PutMapping(value = "/UpdateFile/{userID}/{organizationID}")
+    public void updateFile(@RequestBody Certificate certificate, @PathVariable("userID") Integer userID, @PathVariable("organizationID") Integer organizationID) {
+        this.certificateService.updateFile(certificate, userID, organizationID);
     }
 }

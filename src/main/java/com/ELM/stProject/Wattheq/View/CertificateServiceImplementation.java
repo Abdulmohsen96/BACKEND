@@ -69,7 +69,7 @@ public class CertificateServiceImplementation implements CertificateService {
     }
 
     @Override
-    public void updateFile(Certificate certificate, Integer userID) {
-        this.repo.updateFile(certificate.getCertificateDescription(), certificate.getCertificateDate(), userID, certificate.getCertificateID());
+    public void updateFile(Certificate certificate, Integer userID, Integer organizationID) {
+        this.repo.updateFile(certificate.getCertificateDescription(), certificate.getCertificateDate(), userID, organizationID, certificate.getCertificateID());
     }
 }

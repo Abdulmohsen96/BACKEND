@@ -22,8 +22,8 @@ public interface CertificateRepo extends JpaRepository<Certificate, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE Certificates c set c.CERTIFICATE_DESCRIPTION = :CERTIFICATE_DESCRIPTION, c.CERTIFICATE_DATE = :CERTIFICATE_DATE, c.USERID = :userID where c.CERTIFICATEID = :certificateID", nativeQuery = true)
-    void updateFile(String CERTIFICATE_DESCRIPTION, String CERTIFICATE_DATE, Integer userID, Integer certificateID);
+    @Query(value = "UPDATE Certificates c set c.CERTIFICATE_DESCRIPTION = :CERTIFICATE_DESCRIPTION, c.CERTIFICATE_DATE = :CERTIFICATE_DATE, c.USERID = :userID, c.ORGANIZATIONID = :organizationID where c.CERTIFICATEID = :certificateID", nativeQuery = true)
+    void updateFile(String CERTIFICATE_DESCRIPTION, String CERTIFICATE_DATE, Integer userID, Integer organizationID, Integer certificateID);
 
     @Modifying
     @Transactional

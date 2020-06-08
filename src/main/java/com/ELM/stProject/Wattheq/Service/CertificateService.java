@@ -17,5 +17,5 @@ public interface CertificateService {
 
     public Certificate uploadCertificate(MultipartFile file);
     public List<CertificateDTO> getAllCertificatesByUserID(Integer userID);
-    public void updateFile(Certificate certificate, Integer userID);
+    public void updateFile(Certificate certificate, Integer userID, Integer organizationID);
 }
