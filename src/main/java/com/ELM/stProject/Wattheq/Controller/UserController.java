@@ -33,6 +33,8 @@ public class UserController {
         User user = userService.getUserByEmail(principal.getName());
         map.put("userID", String.valueOf(userService.getUserByEmail(principal.getName()).getUserID()));
         map.put("role", String.valueOf(user.getAuthorityName().getAuthorityName()));
+        if(user.getAuthorityName().getAuthorityName().equals("ROLE_ORGANIZATION"))
+            map.put("organizationID", String.valueOf(user.getUserOrganization().getOrganizationID()));
         return ResponseEntity.ok(map);
     }
 

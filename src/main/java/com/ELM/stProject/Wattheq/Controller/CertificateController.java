@@ -51,8 +51,18 @@ public class CertificateController {
         return certificateService.getAllCertificatesByUserID(userID);
     }
 
+    @GetMapping(value = "/GetAllCertificatesForOrg/{organizationID}")
+    public List<CertificateDTO> getAllCertificatesByOrganizationID(@PathVariable("organizationID") Integer organizationID) {
+        return certificateService.getAllCertificatesByOrganizationID(organizationID);
+    }
+
     @PutMapping(value = "/UpdateFile/{userID}/{organizationID}")
     public void updateFile(@RequestBody Certificate certificate, @PathVariable("userID") Integer userID, @PathVariable("organizationID") Integer organizationID) {
         this.certificateService.updateFile(certificate, userID, organizationID);
+    }
+
+    @PutMapping(value = "/UpdateStatus/{organizationID}/{certificateStatus}")
+    public void updateStatus(@RequestBody Certificate certificate, @PathVariable("organizationID") Integer organizationID, @PathVariable("certificateStatus") String certificateStatus) {
+        this.certificateService.updateStatus(certificate, certificateStatus, organizationID);
     }
 }

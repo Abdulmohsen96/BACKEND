@@ -68,8 +68,19 @@ public class CertificateServiceImplementation implements CertificateService {
         return certificateDTOS;
     }
 
+    public List<CertificateDTO> getAllCertificatesByOrganizationID(Integer organizationID) {
+        List<Certificate> certificates = repo.findCertificatesByOrganizationID(organizationID);
+        List<CertificateDTO> certificateDTOS = ObjectMapperUtils.mapAll(certificates, CertificateDTO.class);
+        return certificateDTOS;
+    }
+
     @Override
     public void updateFile(Certificate certificate, Integer userID, Integer organizationID) {
         this.repo.updateFile(certificate.getCertificateDescription(), certificate.getCertificateDate(), userID, organizationID, certificate.getCertificateID());
+    }
+
+    @Override
+    public void updateStatus(Certificate certificate, String certificateStatus, Integer organizationID) {
+        this.repo.updateStatus(certificateStatus, certificate.getCertificateID(), organizationID);
     }
 }
